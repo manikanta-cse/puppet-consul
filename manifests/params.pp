@@ -23,7 +23,7 @@ class consul::params {
     /^arm.*/:          { $arch = 'arm'   }
     'x64':             {
       # 0.6.0 introduced a 64-bit version, so we need to differentiate:
-      if (versioncmp($::consul::version, '0.6.0') < 0) {
+      if (versioncmp("${::consul::version}", '0.6.0') < 0) {
         $arch = '386'
       } else {
         $arch = 'amd64'
